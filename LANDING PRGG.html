@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>PRGG 2025 - Ketahanan Pangan & Air Kulon Progo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #0b4f6c;
+      --primary-dark: #073549;
+      --accent: #f3b229;
+      --bg: #f4f7fc;
+      --text: #222;
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.08);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+
+    header {
+      background: white;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 7vw;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ugm-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .ugm-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brand-text .title {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .brand-text .subtitle {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .nav-search {
+      position: relative;
+    }
+    .nav-search input {
+      padding: 6px 28px 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #ccd3e0;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .nav-search span {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      padding: 26px 7vw 60px;
+    }
+
+    section { margin-bottom: 60px; }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid #ccd3e0;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    /* HERO SLIDER (mirip PRGG contoh) */
+
+    #hero {
+      background: linear-gradient(135deg, #e8f1ff, #f8fbff);
+      border-radius: 28px;
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 26px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .breadcrumbs {
+      font-size: 0.8rem;
+      color: #65708a;
+    }
+
+    .hero-slider {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fff7e3;
+      color: #6b4b12;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+      font-weight: 750;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .slide-indicator {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    .hero-map-thumb {
+      background: white;
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-map-thumb-inner {
+      border-radius: 14px;
+      border: 1px dashed #b7c9e5;
+      background: linear-gradient(135deg, #d9ecff, #f4fbff);
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .hero-slider-controls {
+      margin-top: 12px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      align-items: center;
+    }
+    .hero-slider-controls button {
+      background: white;
+      border-radius: 999px;
+      border: 1px solid #ccd3e0;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    /* STAT CARDS (angka ringkas) */
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .stat-unit {
+      font-size: 0.8rem;
+      color: #777;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      margin-top: 6px;
+      color: #444;
+    }
+
+    /* LATAR BELAKANG + BACA SELENGKAPNYA */
+
+    #latar-belakang p { font-size: 0.95rem; text-align: justify; }
+
+    .read-more-content { display: none; margin-top: 10px; }
+    .read-more-toggle {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--primary);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      text-decoration: underline;
+    }
+
+    /* KATEGORI PETA */
+
+    #kategori-peta .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .map-card {
+      background: white;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .badge {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #eef3ff;
+      color: #3c4c93;
+      margin-bottom: 4px;
+    }
+    .map-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+    }
+    .map-card p { font-size: 0.9rem; color: #555; }
+    .map-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .map-card-footer span {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* DETAIL PETA (meniru Jakartasatu style) */
+
+    #detail-peta { margin-top: -20px; }
+
+    .detail-wrapper {
+      background: linear-gradient(to bottom, #f2f7ff 0%, #f9fbff 40%, #ffffff 100%);
+      border-radius: 26px;
+      padding: 28px 22px 30px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+    }
+
+    .detail-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .detail-header h2 {
+      font-size: 1.5rem;
+      color: #11427a;
+      margin-bottom: 8px;
+    }
+    .detail-underline {
+      width: 80px;
+      height: 3px;
+      margin: 0 auto;
+      border-radius: 999px;
+      background: #11427a;
+    }
+
+    .detail-banner-btn {
+      margin: 24px auto 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .detail-banner-btn a {
+      background: #11427a;
+      color: #fff;
+      padding: 10px 40px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(2,42,90,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 2fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .detail-left-title {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .detail-left-title span.highlight {
+      color: #f19c1f;
+      font-weight: 650;
+    }
+    .detail-desc { font-size: 0.9rem; color: #444; }
+
+    .detail-right-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+    }
+    .detail-right-box h3 {
+      font-size: 1rem;
+      color: #11427a;
+      margin-bottom: 10px;
+    }
+    .detail-right-box ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+    }
+    .detail-right-box li { margin-bottom: 5px; }
+
+    .detail-hidden { display: none; }
+
+    /* TENTANG KAMI */
+
+    #tentang-kami .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .person-card {
+      background: white;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .person-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      background: #e2e8f5;
+      margin: 0 auto 8px;
+    }
+    .person-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+    }
+    .person-role {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    /* KOMENTAR */
+
+    #komentar .comment-box {
+      background: white;
+      border-radius: 20px;
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      max-width: 640px;
+    }
+    #komentar form label {
+      font-size: 0.85rem;
+      display: block;
+      margin-top: 8px;
+    }
+    #komentar input,
+    #komentar textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ccd3e0;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+      outline: none;
+      margin-top: 2px;
+    }
+    #komentar textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    #komentar .submit-row {
+      margin-top: 12px;
+      text-align: right;
+    }
+
+    footer {
+      padding: 14px 7vw 22px;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #dde2ee;
+      background: white;
+      margin-top: 10px;
+    }
+
+    /* FEEDBACK FLOAT BUTTON ala JakartaSatu */
+
+    .feedback-widget {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 200;
+      font-size: 0.9rem;
+    }
+    .feedback-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 9px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+    }
+    .feedback-btn span.icon { font-size: 1rem; }
+
+    .feedback-panel {
+      position: fixed;
+      bottom: 70px;
+      right: 18px;
+      width: min(320px, 90vw);
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+      padding: 14px 14px 12px;
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s;
+    }
+    .feedback-panel.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .feedback-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .feedback-header h4 {
+      font-size: 0.95rem;
+      color: var(--primary-dark);
+    }
+    .feedback-header button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: #888;
+    }
+    .feedback-panel label {
+      font-size: 0.8rem;
+      color: #555;
+      display: block;
+      margin-top: 6px;
+      margin-bottom: 2px;
+    }
+    .feedback-panel input,
+    .feedback-panel select,
+    .feedback-panel textarea {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #d4d9e6;
+      padding: 6px 8px;
+      font-size: 0.83rem;
+      outline: none;
+    }
+    .feedback-panel textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+    .feedback-panel .submit-row {
+      margin-top: 10px;
+      text-align: right;
+    }
+    .feedback-panel .submit-row button {
+      font-size: 0.83rem;
+      border-radius: 999px;
+      border: none;
+      padding: 7px 14px;
+      background: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .feedback-note {
+      font-size: 0.7rem;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+      #hero {
+        padding: 18px 14px 22px;
+      }
+      .hero-slider {
+        grid-template-columns: 1fr;
+      }
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="ugm-logo">
+        <img src="logo%20ugm.png" alt="Logo UGM">
+      </div>
+      <div class="brand-text">
+        <div class="title">PRGG 2025</div>
+        <div class="subtitle">Teknik Geodesi, Universitas Gadjah Mada</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#hero">Beranda</a>
+      <a href="#latar-belakang">Latar Belakang</a>
+      <a href="#kategori-peta">Kategori Peta</a>
+      <a href="#tentang-kami">Tentang Kami</a>
+      <a href="#komentar">Komentar</a>
+      <div class="nav-search">
+        <input id="navSearch" type="text" placeholder="Cari peta / kata kunci..." />
+        <span>🔍</span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SLIDER -->
+  <section id="hero">
+    <div class="hero-top">
+      <div class="breadcrumbs">
+        PRGG 2025 &nbsp;>&nbsp; WebGIS Ketahanan Pangan & Air Kulon Progo
+      </div>
+    </div>
+
+    <div class="hero-slider">
+      <div>
+        <div class="hero-tag">
+          <span>📍 Kulon Progo</span>
+          <span id="heroTagJenis">Ketahanan Pangan</span>
+        </div>
+        <h1 class="hero-title" id="heroTitle">
+          Pemetaan Potensi Ketahanan Pangan Desa
+        </h1>
+        <p class="hero-desc" id="heroDesc">
+          Menyajikan informasi potensi ketahanan pangan desa di Kabupaten Kulon Progo
+          melalui peta interaktif berbasis QGIS dan qgis2web.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" id="heroBtnMap">Lihat Peta</button>
+          <button class="btn-ghost" onclick="scrollToSection('kategori-peta')">
+            Lihat Deskripsi
+          </button>
+        </div>
+        <div class="slide-indicator" id="slideIndicator">Slide 1 dari 2</div>
+      </div>
+
+      <div class="hero-map-thumb">
+        <div class="hero-map-thumb-inner" id="heroMapThumb">
+          Pratinjau peta Ketahanan Pangan Desa. Hasil utama dari pemetaan PRGG 2025.
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slider-controls">
+      <button type="button" onclick="prevSlide()">← Sebelumnya</button>
+      <button type="button" onclick="nextSlide()">Berikutnya →</button>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" id="statDesa">88</div>
+        <div class="stat-unit">desa</div>
+        <div class="stat-label">Jumlah Desa di Kulon Progo</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">2</div>
+        <div class="stat-unit">peta tematik</div>
+        <div class="stat-label">Ketahanan Pangan & Ketahanan Air</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">2025</div>
+        <div class="stat-unit">PRGG</div>
+        <div class="stat-label">Program Riset dan Gerakan Geospasial</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATAR BELAKANG -->
+  <section id="latar-belakang">
+    <div class="section-label">Latar Belakang</div>
+    <div class="section-title">
+      Pemetaan Potensi Desa dalam Sektor Ketahanan Pangan dan Ketahanan Air
+    </div>
+    <p>
+      Ketahanan pangan dan ketahanan air merupakan dua komponen penting dalam
+      menjaga kualitas hidup masyarakat serta mendukung pencapaian pembangunan
+      berkelanjutan. Kabupaten Kulon Progo memiliki karakteristik wilayah yang
+      beragam, mulai dari kawasan pesisir, perbukitan, hingga dataran rendah
+      dengan potensi sumber daya alam yang berbeda-beda di setiap desa.
+    </p>
+    <div class="read-more-content" id="lbMore">
+      <p>
+        Namun, informasi terkait potensi ketahanan pangan dan ketahanan air
+        tersebut masih tersebar dalam berbagai bentuk data tabular dan belum
+        sepenuhnya terdokumentasi dalam bentuk peta spasial terintegrasi.
+        Kondisi ini menyulitkan pemerintah daerah maupun pemangku kepentingan
+        lainnya untuk mengidentifikasi desa prioritas, merencanakan program
+        intervensi, serta mengoptimalkan pemanfaatan sumber daya secara tepat
+        sasaran.
+      </p>
+      <p>
+        Melalui PRGG 2025, dilakukan pemetaan potensi desa dengan memanfaatkan
+        teknologi Sistem Informasi Geografis (SIG) dan pengolahan data spasial
+        menggunakan QGIS. Hasil pemetaan kemudian disajikan dalam bentuk
+        WebGIS interaktif berbasis qgis2web agar dapat diakses secara luas oleh
+        pemerintah daerah, peneliti, maupun masyarakat.
+      </p>
+    </div>
+    <button class="read-more-toggle" id="lbToggle">Baca selengkapnya</button>
+  </section>
+
+  <!-- KATEGORI PETA -->
+  <section id="kategori-peta">
+    <div class="section-label">Kategori Peta</div>
+    <div class="section-title">Eksplorasi Peta Ketahanan Pangan dan Air</div>
+    <div class="section-subtitle">
+      Pilih salah satu peta berikut untuk melihat detail indikator dan membuka
+      WebGIS hasil pemetaan dengan QGIS dan qgis2web.
+    </div>
+
+    <div class="map-grid" id="mapGrid">
+      <!-- PANGAN -->
+      <article class="map-card"
+               data-keywords="ketahanan pangan potensi desa pertanian">
+        <div>
+          <span class="badge">Ketahanan Pangan</span>
+          <h3>Peta Potensi Ketahanan Pangan Desa</h3>
+          <p>
+            Menampilkan tingkat potensi ketahanan pangan di setiap desa berdasarkan
+            komoditas utama, luas panen, produktivitas, dan dukungan infrastruktur.
+          </p>
+        </div>
+        <div class="map-card-footer">
+          <span>WebGIS (qgis2web)</span>
+          <div>
+            <button class="btn-ghost" type="button"
+                    onclick="openMap('pangan')">Lihat Peta</button>
+            <button class="btn-primary" type="button"
+                    onclick="showDetail('pangan')">Detail</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- AIR -->
+      <article class="map-card"
+               data-keywords="ketahanan air potensi desa sumber air irigasi">
+        <div>
+          <span class="badge">Ketahanan Air</span>
+          <h3>Peta Potensi Ketahanan Air Desa</h3>
+          <p>
+            Menyajikan informasi ketersediaan dan aksesibilitas sumber air,
+            jaringan irigasi, dan kondisi hidrologi untuk mendukung kebutuhan
+            domestik dan pertanian.
+          </p>
+        </div>
+        <div class="map-card-footer">
+          <span>WebGIS (qgis2web)</span>
+          <div>
+            <button class="btn-ghost" type="button"
+                    onclick="openMap('air')">Lihat Peta</button>
+            <button class="btn-primary" type="button"
+                    onclick="showDetail('air')">Detail</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DETAIL PETA (muncul setelah klik Detail) -->
+  <section id="detail-peta" class="detail-hidden">
+    <div class="detail-wrapper">
+      <div class="detail-header">
+        <h2>Detail Peta</h2>
+        <div class="detail-underline"></div>
+      </div>
+
+      <div class="detail-banner-btn">
+        <a href="#" id="detailLink" target="_blank" rel="noopener">
+          Lihat Peta/Dashboard &rarr;
+        </a>
+      </div>
+
+      <div class="detail-content">
+        <div>
+          <div class="detail-left-title">
+            <span id="detailJenis">Peta</span> |
+            <span class="highlight" id="detailInstansi">PRGG 2025 - Teknik Geodesi UGM</span>
+          </div>
+          <p class="detail-desc" id="detailDeskripsi"></p>
+        </div>
+
+        <aside class="detail-right-box">
+          <h3>Komponen Layer</h3>
+          <ul id="detailLayers"></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG KAMI -->
+  <section id="tentang-kami">
+    <div class="section-label">Tentang Kami</div>
+    <div class="section-title">Tim PRGG 2025</div>
+    <div class="section-subtitle">
+      WebGIS ini dikembangkan sebagai bagian dari Program Riset dan Gerakan
+      Geospasial (PRGG) 2025 di Departemen Teknik Geodesi, Universitas Gadjah Mada.
+    </div>
+
+    <div class="team-grid">
+      <div class="person-card">
+        <div class="person-avatar"></div>
+        <div class="person-name">Nama Dosen Pembimbing</div>
+        <div class="person-role">Dosen Pembimbing</div>
+        <div>NIP / Keterangan lain</div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar"></div>
+        <div class="person-name">Anggota 1</div>
+        <div class="person-role">Mahasiswa PRGG 2025</div>
+        <div>NIM</div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar"></div>
+        <div class="person-name">Anggota 2</div>
+        <div class="person-role">Mahasiswa PRGG 2025</div>
+        <div>NIM</div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar"></div>
+        <div class="person-name">Anggota 3</div>
+        <div class="person-role">Mahasiswa PRGG 2025</div>
+        <div>NIM</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KOMENTAR -->
+  <section id="komentar">
+    <div class="section-label">Komentar</div>
+    <div class="section-title">Kritik dan Saran</div>
+    <div class="section-subtitle">
+      Silakan sampaikan masukan untuk pengembangan WebGIS PRGG 2025.
+    </div>
+
+    <div class="comment-box">
+      <form id="commentForm">
+        <label for="cNama">Nama</label>
+        <input id="cNama" name="nama" type="text" placeholder="Nama (opsional)" />
+
+        <label for="cEmail">Email</label>
+        <input id="cEmail" name="email" type="email" placeholder="nama@contoh.com" />
+
+        <label for="cPesan">Pesan</label>
+        <textarea id="cPesan" name="pesan"
+                  placeholder="Tuliskan kritik, saran, atau komentar Anda..."></textarea>
+
+        <div class="submit-row">
+          <button class="btn-primary" type="submit">Kirim Pesan</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Copyright © PRGG 2025 - Teknik Geodesi UGM
+</footer>
+
+<!-- FEEDBACK FLOAT WIDGET ala JakartaSatu -->
+<div class="feedback-widget">
+  <button class="feedback-btn" id="feedbackToggle">
+    <span class="icon">💬</span>
+    <span>Kritik & Saran</span>
+  </button>
+
+  <div class="feedback-panel" id="feedbackPanel">
+    <div class="feedback-header">
+      <h4>Formulir Masukan</h4>
+      <button type="button" id="feedbackClose">&times;</button>
+    </div>
+    <form id="feedbackForm">
+      <label for="fbName">Nama (opsional)</label>
+      <input type="text" id="fbName" name="nama" />
+
+      <label for="fbEmail">Email (opsional)</label>
+      <input type="email" id="fbEmail" name="email" />
+
+      <label for="fbKategori">Kategori</label>
+      <select id="fbKategori" name="kategori">
+        <option value="umum">Umum</option>
+        <option value="ketahanan_pangan">Ketahanan Pangan</option>
+        <option value="ketahanan_air">Ketahanan Air</option>
+        <option value="tampilan">Tampilan / UI</option>
+        <option value="data">Data / Informasi</option>
+      </select>
+
+      <label for="fbPesan">Pesan</label>
+      <textarea id="fbPesan" name="pesan"></textarea>
+
+      <div class="submit-row">
+        <button type="submit">Kirim</button>
+      </div>
+      <div class="feedback-note">
+        *Belum terhubung ke server, data hanya tampil di console browser.
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ==== DATA UNTUK SLIDER & DETAIL PETA ====
+  const mapDetails = {
+    pangan: {
+      jenis: "Peta Potensi Ketahanan Pangan Desa",
+      instansi: "PRGG 2025 - Teknik Geodesi UGM",
+      deskripsi: "Peta yang menampilkan informasi potensi ketahanan pangan setiap desa di Kabupaten Kulon Progo berdasarkan komoditas utama, luas panen, produktivitas, dan indikator pendukung lainnya.",
+      layers: [
+        "Indeks Potensi Ketahanan Pangan Desa",
+        "Sebaran Komoditas Utama",
+        "Luas Panen dan Produksi per Desa",
+        "Batas Administrasi Desa/Kecamatan",
+        "Jaringan Irigasi Terkait Lahan Pertanian"
+      ],
+      url: "peta_ketahanan_pangan/index.html",
+      heroDesc: "Menunjukkan persebaran potensi ketahanan pangan desa melalui indikator produksi pertanian dan dukungan infrastruktur.",
+      heroThumb: "Pratinjau peta Ketahanan Pangan Desa hasil pemetaan QGIS & qgis2web."
+    },
+    air: {
+      jenis: "Peta Potensi Ketahanan Air Desa",
+      instansi: "PRGG 2025 - Teknik Geodesi UGM",
+      deskripsi: "Peta yang menampilkan kondisi ketahanan air desa meliputi ketersediaan sumber air, jaringan irigasi, curah hujan, dan aksesibilitas air.",
+      layers: [
+        "Indeks Potensi Ketahanan Air Desa",
+        "Sebaran Sumber Air (sumur, mata air, PDAM, dll.)",
+        "Jaringan Irigasi dan Sungai",
+        "Peta Curah Hujan Rata-rata",
+        "Batas Administrasi Desa/Kecamatan"
+      ],
+      url: "peta_ketahanan_air/index.html",
+      heroDesc: "Menggambarkan potensi dan kerentanan ketahanan air di tingkat desa berdasarkan sumber air dan kondisi hidrologi.",
+      heroThumb: "Pratinjau peta Ketahanan Air Desa hasil pemetaan QGIS & qgis2web."
+    }
+  };
+
+  // ==== HERO SLIDER LOGIC ====
+  const slides = ["pangan", "air"];
+  let currentSlide = 0;
+
+  const heroTagJenis = document.getElementById("heroTagJenis");
+  const heroTitle = document.getElementById("heroTitle");
+  const heroDesc = document.getElementById("heroDesc");
+  const heroMapThumb = document.getElementById("heroMapThumb");
+  const heroBtnMap = document.getElementById("heroBtnMap");
+  const slideIndicator = document.getElementById("slideIndicator");
+
+  function renderSlide() {
+    const key = slides[currentSlide];
+    const data = mapDetails[key];
+    if (!data) return;
+
+    heroTagJenis.textContent = key === "pangan" ? "Ketahanan Pangan" : "Ketahanan Air";
+    heroTitle.textContent = data.jenis;
+    heroDesc.textContent = data.heroDesc;
+    heroMapThumb.textContent = data.heroThumb;
+    heroBtnMap.onclick = () => openMap(key);
+    slideIndicator.textContent = `Slide ${currentSlide + 1} dari ${slides.length}`;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    renderSlide();
+  }
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    renderSlide();
+  }
+
+  // ==== DETAIL PETA ====
+  function showDetail(key) {
+    const data = mapDetails[key];
+    if (!data) return;
+
+    document.getElementById("detailJenis").textContent = data.jenis;
+    document.getElementById("detailInstansi").textContent = data.instansi;
+    document.getElementById("detailDeskripsi").textContent = data.deskripsi;
+
+    const list = document.getElementById("detailLayers");
+    list.innerHTML = "";
+    data.layers.forEach(layer => {
+      const li = document.createElement("li");
+      li.textContent = layer;
+      list.appendChild(li);
+    });
+
+    document.getElementById("detailLink").href = data.url;
+
+    const section = document.getElementById("detail-peta");
+    section.classList.remove("detail-hidden");
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function openMap(key) {
+    const data = mapDetails[key];
+    if (!data) return;
+    window.open(data.url, "_blank");
+  }
+
+  // ==== SCROLL HELPER ====
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // ==== SEARCH FILTER UNTUK KATEGORI PETA ====
+  const mapGrid = document.getElementById("mapGrid");
+  const mapCards = mapGrid ? mapGrid.querySelectorAll(".map-card") : [];
+  function filterMaps(q) {
+    const query = q.trim().toLowerCase();
+    mapCards.forEach(card => {
+      const keywords = (card.getAttribute("data-keywords") || "").toLowerCase();
+      const text = card.textContent.toLowerCase();
+      const match = !query || keywords.includes(query) || text.includes(query);
+      card.style.display = match ? "flex" : "none";
+    });
+  }
+  const navSearch = document.getElementById("navSearch");
+  if (navSearch) {
+    navSearch.addEventListener("input", e => filterMaps(e.target.value));
+  }
+
+  // ==== LATAR BELAKANG "BACA SELENGKAPNYA" ====
+  const lbMore = document.getElementById("lbMore");
+  const lbToggle = document.getElementById("lbToggle");
+  if (lbMore && lbToggle) {
+    lbToggle.addEventListener("click", () => {
+      const show = lbMore.style.display === "block";
+      lbMore.style.display = show ? "none" : "block";
+      lbToggle.textContent = show ? "Baca selengkapnya" : "Tutup";
+    });
+  }
+
+  // ==== KOMENTAR & FEEDBACK (sementara ke console) ====
+  const commentForm = document.getElementById("commentForm");
+  if (commentForm) {
+    commentForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const data = {
+        nama: commentForm.cNama.value,
+        email: commentForm.cEmail.value,
+        pesan: commentForm.cPesan.value
+      };
+      console.log("Komentar PRGG:", data);
+      alert("Terima kasih atas komentar Anda! (sementara disimpan di console).");
+      commentForm.reset();
+    });
+  }
+
+  const feedbackToggle = document.getElementById("feedbackToggle");
+  const feedbackPanel = document.getElementById("feedbackPanel");
+  const feedbackClose = document.getElementById("feedbackClose");
+  const feedbackForm = document.getElementById("feedbackForm");
+
+  if (feedbackToggle && feedbackPanel && feedbackClose && feedbackForm) {
+    feedbackToggle.addEventListener("click", () => {
+      feedbackPanel.classList.toggle("open");
+    });
+    feedbackClose.addEventListener("click", () => {
+      feedbackPanel.classList.remove("open");
+    });
+    feedbackForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const data = {
+        nama: feedbackForm.fbName.value,
+        email: feedbackForm.fbEmail.value,
+        kategori: feedbackForm.fbKategori.value,
+        pesan: feedbackForm.fbPesan.value
+      };
+      console.log("Feedback PRGG:", data);
+      alert("Terima kasih atas masukan Anda! (sementara disimpan di console).");
+      feedbackForm.reset();
+      feedbackPanel.classList.remove("open");
+    });
+  }
+
+  // initial render
+  renderSlide();
+</script>
+</body>
+</html>
